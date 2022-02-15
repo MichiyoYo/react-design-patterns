@@ -3,26 +3,20 @@ import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
+  height: 100vh;
 `;
 
 const Pane = styled.div`
   flex: ${(props) => props.weight};
+  height: 100%;
 `;
 
-export const SplitScreen = ({
-  left: LeftComponent,
-  right: RightComponent,
-  leftWeight = 1,
-  rightWeight = 1,
-}) => {
+export const SplitScreen = ({ children, leftWeight = 1, rightWeight = 1 }) => {
+  const [left, right] = children;
   return (
     <Container>
-      <Pane weight={leftWeight}>
-        <LeftComponent />
-      </Pane>
-      <Pane weight={rightWeight}>
-        <RightComponent />
-      </Pane>
+      <Pane weight={leftWeight}>{left}</Pane>
+      <Pane weight={rightWeight}>{right}</Pane>
     </Container>
   );
 };
