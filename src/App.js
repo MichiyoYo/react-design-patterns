@@ -24,7 +24,6 @@ const RightHandComponent = ({ message }) => {
 
 const Collapsible = ({ componentType, children }) => {
   const [collapsed, setCollapsed] = useState(true);
-
   return (
     <>
       <button onClick={() => setCollapsed(!collapsed)}>{componentType}</button>
