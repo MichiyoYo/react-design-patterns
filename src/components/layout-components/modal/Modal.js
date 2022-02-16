@@ -26,6 +26,7 @@ const ModalBody = styled.div`
     font-size: 30px;
     background: transparent;
     border: 0;
+    cursor: pointer;
   }
 `;
 
