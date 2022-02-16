@@ -6,6 +6,8 @@ import { people, products } from "./components/lists/resources";
 import List from "./components/lists/List";
 import SmallPersonListItem from "./components/lists/people/SmallPersonListItem";
 import LargePersonListItem from "./components/lists/people/LargePersonListItem";
+import SmallProductListItem from "./components/lists/products/SmallProductListItem";
+import LargeProductListItem from "./components/lists/products/LargeProductListItem";
 
 const LeftHandComponent = ({ name }) => {
   return <h1 style={{ background: "green" }}>{name}</h1>;
@@ -35,11 +37,23 @@ function App() {
         resourceName="person"
         itemComponent={SmallPersonListItem}
       />
-
+      <h2>Large People List</h2>
       <List
         items={people}
         resourceName="person"
         itemComponent={LargePersonListItem}
+      />
+      <h2>Small Product List</h2>
+      <List
+        items={products}
+        resourceName="product"
+        itemComponent={SmallProductListItem}
+      />
+      <h2>Large Product List</h2>
+      <List
+        items={products}
+        resourceName="product"
+        itemComponent={LargeProductListItem}
       />
     </AppWrapper>
   );
