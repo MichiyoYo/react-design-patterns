@@ -29,7 +29,10 @@ const AppWrapper = styled.div`
 function App() {
   return (
     <>
-      <Modal />
+      <Modal>
+        <h2>This is Cree's modal</h2>
+        <p>It's very well done and so cool! 👍</p>
+      </Modal>
       <AppWrapper>
         <h1>Split Screen</h1>
         <SplitScreen children leftWeight={1} rightWeight={3}>

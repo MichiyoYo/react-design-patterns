@@ -16,9 +16,9 @@ const ModalBackground = styled.div`
 `;
 
 const ModalBody = styled.div`
-  width: 50%;
+  width: 40%;
   background: #fff;
-  padding: 20px;
+  padding: 20px 40px;
   display: flex;
   flex-direction: column;
   button {
