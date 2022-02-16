@@ -14,6 +14,7 @@ import Modal from "./components/layout-components/modal/Modal";
 import { useState } from "react";
 import CurrentUserLoader from "./components/container-components/CurrentUserLoader";
 import UserInfo from "./components/container-components/UserInfo";
+import UserLoader from "./components/container-components/UserLoader";
 
 const LeftHandComponent = ({ name }) => {
   return <h1 style={{ background: "green" }}>{name}</h1>;
@@ -28,7 +29,7 @@ const Collapsible = ({ componentType, children }) => {
   return (
     <>
       <button onClick={() => setCollapsed(!collapsed)}>{componentType}</button>
-      <div className={`collapsible ${collapsed ? "collapsed" : ""}`}>
+      <div className={`collapsible ${collapsed && "collapsed"}`}>
         {children}
       </div>
     </>
@@ -78,9 +79,11 @@ function App() {
       </li>
       <li>
         <Collapsible componentType={"Container Components"}>
-          <CurrentUserLoader>
+          <h2>Current User Loader</h2>
+          <p>Loads data from external API</p>
+          <UserLoader userId="234">
             <UserInfo />
-          </CurrentUserLoader>
+          </UserLoader>
         </Collapsible>
       </li>
     </ul>
