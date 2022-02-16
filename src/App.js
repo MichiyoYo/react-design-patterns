@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { SplitScreen } from "./components/layout-components/split-screen/SplitScreen";
 import styled from "styled-components";
@@ -13,6 +12,8 @@ import SmallProductListItem from "./components/layout-components/lists/products/
 import LargeProductListItem from "./components/layout-components/lists/products/LargeProductListItem";
 import Modal from "./components/layout-components/modal/Modal";
 import { useState } from "react";
+import CurrentUserLoader from "./components/container-components/CurrentUserLoader";
+import UserInfo from "./components/container-components/UserInfo";
 
 const LeftHandComponent = ({ name }) => {
   return <h1 style={{ background: "green" }}>{name}</h1>;
@@ -77,7 +78,9 @@ function App() {
       </li>
       <li>
         <Collapsible componentType={"Container Components"}>
-          <h1>Hey I'm a container component</h1>
+          <CurrentUserLoader>
+            <UserInfo />
+          </CurrentUserLoader>
         </Collapsible>
       </li>
     </ul>

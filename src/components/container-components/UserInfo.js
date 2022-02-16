@@ -1,8 +1,8 @@
 import React from "react";
 
-function UserInfo({ person }) {
-  const { name, age, hairColor, hobbies } = person;
-  return (
+function UserInfo({ user }) {
+  const { name, age, hairColor, hobbies } = user || {};
+  return user ? (
     <li>
       <h3>{name}</h3>
       <p>Age: {age}</p>
@@ -14,6 +14,8 @@ function UserInfo({ person }) {
         ))}
       </ul>
     </li>
+  ) : (
+    <p>Loading...</p>
   );
 }
 
