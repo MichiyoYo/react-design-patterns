@@ -30,7 +30,7 @@ function App() {
   return (
     <>
       <Modal>
-        <h2>This is Cree's modal</h2>
+        <h2 style={{ marginTop: 0 }}>This is Cree's modal</h2>
         <p>It's very well done and so cool! 👍</p>
       </Modal>
       <AppWrapper>
