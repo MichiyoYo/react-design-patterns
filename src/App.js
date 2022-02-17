@@ -17,6 +17,8 @@ import ProductInfo from "./components/container-components/resources/ProductInfo
 
 import UserLoader from "./components/container-components/user-loader/UserLoader";
 import ResourceLoader from "./components/container-components/resource-loader/ResourceLoader";
+import DataSource from "./components/container-components/data-source/DataSource";
+import axios from "axios";
 
 const LeftHandComponent = ({ name }) => {
   return <h1 style={{ background: "green" }}>{name}</h1>;
@@ -111,6 +113,18 @@ function App() {
               >
                 <ProductInfo />
               </ResourceLoader>
+            </Collapsible>
+            <h2>Data Source</h2>
+            <Collapsible componentType={"Data Source"}>
+              <DataSource
+                getDataFunc={async () => {
+                  const response = await axios.get("/users/123");
+                  return response.data;
+                }}
+                resourceName="user"
+              >
+                <UserInfo />
+              </DataSource>
             </Collapsible>
           </Collapsible>
         </li>
