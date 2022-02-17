@@ -47,6 +47,8 @@ const getServerData = async (url) => {
   return response.data;
 };
 
+//this function takes a key and returns a function, so when I call it
+//in the prop I can just call it by name 💡
 const getLocalStorageData = (key) => () => {
   return localStorage.getItem(key);
 };
