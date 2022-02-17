@@ -153,6 +153,11 @@ function App() {
             </Collapsible>
           </Collapsible>
         </li>
+        <li>
+          <Collapsible
+            componentType={"Controlled and uncontrolled components"}
+          ></Collapsible>
+        </li>
       </ul>
     </>
   );
