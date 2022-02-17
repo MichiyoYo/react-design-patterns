@@ -42,6 +42,11 @@ const Collapsible = ({ componentType, children }) => {
 
 const userIds = ["123", "234", "345"];
 
+const getServerData = async (url) => {
+  const response = await axios.get(url);
+  return response.data;
+};
+
 function App() {
   return (
     <>
@@ -117,10 +122,7 @@ function App() {
             <h2>Data Source</h2>
             <Collapsible componentType={"Data Source"}>
               <DataSource
-                getDataFunc={async () => {
-                  const response = await axios.get("/users/123");
-                  return response.data;
-                }}
+                getDataFunc={() => getServerData("/users/234")}
                 resourceName="user"
               >
                 <UserInfo />
