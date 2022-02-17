@@ -12,7 +12,6 @@ import SmallProductListItem from "./components/layout-components/lists/products/
 import LargeProductListItem from "./components/layout-components/lists/products/LargeProductListItem";
 import Modal from "./components/layout-components/modal/Modal";
 import { useState } from "react";
-import CurrentUserLoader from "./components/container-components/current-user-loader/CurrentUserLoader";
 import UserInfo from "./components/container-components/resources/UserInfo";
 import ProductInfo from "./components/container-components/resources/ProductInfo";
 
