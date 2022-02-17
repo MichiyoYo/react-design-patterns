@@ -1,3 +1,4 @@
+import e from "express";
 import React from "react";
 
 function UncontrolledForm(props) {
@@ -5,7 +6,12 @@ function UncontrolledForm(props) {
   const ageInput = React.createRef();
   const hairColorInput = React.createRef();
 
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    console.log(nameInput.current.value);
+    console.log(ageInput.current.value);
+    console.log(hairColorInput.current.value);
+    e.preventDefault();
+  };
 
   return (
     <form onSubmit={handleSubmit}>
