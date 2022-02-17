@@ -47,6 +47,12 @@ const getServerData = async (url) => {
   return response.data;
 };
 
+const getLocalStorageData = (key) => () => {
+  return localStorage.getItem(key);
+};
+
+const Text = ({ message }) => <p>{message}</p>;
+
 function App() {
   return (
     <>
@@ -121,11 +127,26 @@ function App() {
             </Collapsible>
             <h2>Data Source</h2>
             <Collapsible componentType={"Data Source"}>
+              <h3>Data from Server</h3>
+              <ul>
+                {userIds.map((id) => (
+                  <li>
+                    <DataSource
+                      getDataFunc={() => getServerData(`/users/${id}`)}
+                      resourceName={"user"}
+                    >
+                      <UserInfo />
+                    </DataSource>
+                  </li>
+                ))}
+              </ul>
+
+              <h3>Data from local storage</h3>
               <DataSource
-                getDataFunc={() => getServerData("/users/234")}
-                resourceName="user"
+                getDataFunc={getLocalStorageData("message")}
+                resourceName="message"
               >
-                <UserInfo />
+                <Text />
               </DataSource>
             </Collapsible>
           </Collapsible>
