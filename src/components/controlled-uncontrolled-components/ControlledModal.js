@@ -34,22 +34,15 @@ const ModalBody = styled.div`
  * This modal is an uncontrolled component because its state resides in itself and
  * there is no way that a parent component could control the modal's state
  */
-function Modal({ children }) {
-  const [shouldShow, setShouldShow] = useState(false);
-
-  return (
-    <>
-      <button onClick={() => setShouldShow(true)}>Show Modal</button>
-      {shouldShow && (
-        <ModalBackground onClick={() => setShouldShow(false)}>
-          <ModalBody>
-            <button onClick={() => setShouldShow(false)}>&times;</button>
-            {children}
-          </ModalBody>
-        </ModalBackground>
-      )}
-    </>
-  );
+function ControlledModal({ shouldShow, onRequestClose, children }) {
+  return shouldShow ? (
+    <ModalBackground onClick={onRequestClose}>
+      <ModalBody>
+        <button onClick={onRequestClose}>&times;</button>
+        {children}
+      </ModalBody>
+    </ModalBackground>
+  ) : null;
 }
 
-export default Modal;
+export default ControlledModal;

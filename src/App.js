@@ -21,6 +21,7 @@ import DataSource from "./components/container-components/data-source/DataSource
 import axios from "axios";
 import UncontrolledForm from "./components/controlled-uncontrolled-components/UncontrolledForm";
 import ControlledForm from "./components/controlled-uncontrolled-components/ControlledForm";
+import ControlledModal from "./components/controlled-uncontrolled-components/ControlledModal";
 
 const LeftHandComponent = ({ name }) => {
   return <h1 style={{ background: "green" }}>{name}</h1>;
@@ -58,6 +59,8 @@ const getLocalStorageData = (key) => () => {
 const Text = ({ message }) => <p>{message}</p>;
 
 function App() {
+  const [shouldShowModal, setShouldShowModal] = useState(false);
+
   return (
     <>
       <h1>React Design Patterns</h1>
@@ -161,6 +164,19 @@ function App() {
             <UncontrolledForm />
             <h2>Controlled form</h2>
             <ControlledForm />
+            <h2>Controlled Modal</h2>
+
+            <ControlledModal
+              shouldShow={shouldShowModal}
+              onRequestClose={() => {
+                setShouldShowModal(false);
+              }}
+            >
+              <h3>This is a modal</h3>
+            </ControlledModal>
+            <button onClick={() => setShouldShowModal(!shouldShowModal)}>
+              {shouldShowModal ? "Close Modal" : "Open Modal"}
+            </button>
           </Collapsible>
         </li>
       </ul>
