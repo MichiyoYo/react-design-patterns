@@ -1,4 +1,3 @@
-import e from "express";
 import React from "react";
 
 function UncontrolledForm(props) {
@@ -13,8 +12,12 @@ function UncontrolledForm(props) {
     e.preventDefault();
   };
 
+  /**
+   * Each input is keeping track of their own state until we submit the form
+   * which is when we get access to the values
+   */
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={(e) => handleSubmit(e)}>
       <input
         type="text"
         name="name"

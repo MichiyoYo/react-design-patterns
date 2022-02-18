@@ -20,6 +20,7 @@ import ResourceLoader from "./components/container-components/resource-loader/Re
 import DataSource from "./components/container-components/data-source/DataSource";
 import axios from "axios";
 import UncontrolledForm from "./components/controlled-uncontrolled-components/UncontrolledForm";
+import ControlledForm from "./components/controlled-uncontrolled-components/ControlledForm";
 
 const LeftHandComponent = ({ name }) => {
   return <h1 style={{ background: "green" }}>{name}</h1>;
@@ -156,7 +157,10 @@ function App() {
         </li>
         <li>
           <Collapsible componentType={"Controlled and uncontrolled components"}>
+            <h2>Uncontrolled form</h2>
             <UncontrolledForm />
+            <h2>Controlled form</h2>
+            <ControlledForm />
           </Collapsible>
         </li>
       </ul>
