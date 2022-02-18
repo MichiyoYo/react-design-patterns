@@ -22,6 +22,7 @@ import axios from "axios";
 import UncontrolledForm from "./components/controlled-uncontrolled-components/UncontrolledForm";
 import ControlledForm from "./components/controlled-uncontrolled-components/ControlledForm";
 import ControlledModal from "./components/controlled-uncontrolled-components/ControlledModal";
+import UnconrtolledOnBoardingFlow from "./components/controlled-uncontrolled-components/UnconrtolledOnBoardingFlow";
 
 const LeftHandComponent = ({ name }) => {
   return <h1 style={{ background: "green" }}>{name}</h1>;
@@ -57,6 +58,25 @@ const getLocalStorageData = (key) => () => {
 };
 
 const Text = ({ message }) => <p>{message}</p>;
+
+const StepOne = ({ goToNext }) => (
+  <>
+    <h1>Step One</h1>
+    <button onClick={() => goToNext({ name: "John Doe" })}>Next</button>
+  </>
+);
+const StepTwo = ({ goToNext }) => (
+  <>
+    <h1>Step Two</h1>
+    <button onClick={() => goToNext({ age: 100 })}>Next</button>
+  </>
+);
+const StepThree = ({ goToNext }) => (
+  <>
+    <h1>Step Three</h1>
+    <button onClick={() => goToNext({ hairColor: "brown" })}>Next</button>
+  </>
+);
 
 function App() {
   const [shouldShowModal, setShouldShowModal] = useState(false);
@@ -165,7 +185,6 @@ function App() {
             <h2>Controlled form</h2>
             <ControlledForm />
             <h2>Controlled Modal</h2>
-
             <ControlledModal
               shouldShow={shouldShowModal}
               onRequestClose={() => {
@@ -177,6 +196,13 @@ function App() {
             <button onClick={() => setShouldShowModal(!shouldShowModal)}>
               {shouldShowModal ? "Close Modal" : "Open Modal"}
             </button>
+
+            <h3>Uncontrolled On Boarding Flow</h3>
+            <UnconrtolledOnBoardingFlow onFinish={(data) => console.log(data)}>
+              <StepOne />
+              <StepTwo />
+              <StepThree />
+            </UnconrtolledOnBoardingFlow>
           </Collapsible>
         </li>
       </ul>
