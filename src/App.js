@@ -23,6 +23,7 @@ import UncontrolledForm from "./components/controlled-uncontrolled-components/Un
 import ControlledForm from "./components/controlled-uncontrolled-components/ControlledForm";
 import ControlledModal from "./components/controlled-uncontrolled-components/ControlledModal";
 import UnconrtolledOnBoardingFlow from "./components/controlled-uncontrolled-components/UnconrtolledOnBoardingFlow";
+import ConrtolledOnBoardingFlow from "./components/controlled-uncontrolled-components/ControlledOnBoardingFlow";
 
 const LeftHandComponent = ({ name }) => {
   return <h1 style={{ background: "green" }}>{name}</h1>;
@@ -71,15 +72,34 @@ const StepTwo = ({ goToNext }) => (
     <button onClick={() => goToNext({ age: 100 })}>Next</button>
   </>
 );
+const StepFour = ({ goToNext }) => (
+  <>
+    <h1>Step Four</h1>
+    <button onClick={() => goToNext({ hairColor: "brown" })}>Next</button>
+  </>
+);
+
 const StepThree = ({ goToNext }) => (
   <>
     <h1>Step Three</h1>
-    <button onClick={() => goToNext({ hairColor: "brown" })}>Next</button>
+    <p>Congratulation, you qualify for our senior discount.</p>
+    <button onClick={() => goToNext({})}>Next</button>
   </>
 );
 
 function App() {
   const [shouldShowModal, setShouldShowModal] = useState(false);
+
+  const [onBoardingData, setOnBoardingData] = useState({});
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  //turns children in an array in case is not
+  //turns children in an array in case is not
+  const onNext = (stepData) => {
+    const updatedData = { ...onBoardingData, ...stepData };
+    setOnBoardingData(updatedData);
+    setCurrentIndex(currentIndex + 1);
+  };
 
   return (
     <>
@@ -203,6 +223,18 @@ function App() {
               <StepTwo />
               <StepThree />
             </UnconrtolledOnBoardingFlow>
+
+            <h3>Controlled Onboarding Flow</h3>
+            <ConrtolledOnBoardingFlow
+              currentIndex={currentIndex}
+              onNext={onNext}
+              onFinish={(data) => console.log(data)}
+            >
+              <StepOne />
+              <StepTwo />
+              {onBoardingData.age >= 62 && <StepThree />}
+              <StepFour />
+            </ConrtolledOnBoardingFlow>
           </Collapsible>
         </li>
       </ul>
