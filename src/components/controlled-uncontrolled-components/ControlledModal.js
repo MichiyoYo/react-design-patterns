@@ -31,8 +31,8 @@ const ModalBody = styled.div`
 `;
 
 /**
- * This modal is an uncontrolled component because its state resides in itself and
- * there is no way that a parent component could control the modal's state
+ * This modal is a controlled component because its state is managed by  the parent
+ * component and it is passed to this component through the props
  */
 function ControlledModal({ shouldShow, onRequestClose, children }) {
   return shouldShow ? (
