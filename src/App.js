@@ -24,7 +24,8 @@ import ControlledForm from "./components/controlled-uncontrolled-components/Cont
 import ControlledModal from "./components/controlled-uncontrolled-components/ControlledModal";
 import UnconrtolledOnBoardingFlow from "./components/controlled-uncontrolled-components/UnconrtolledOnBoardingFlow";
 import ConrtolledOnBoardingFlow from "./components/controlled-uncontrolled-components/ControlledOnBoardingFlow";
-import printProps from "./components/higher-order-components/PrintProps";
+import printProps from "./components/higher-order-components/printProps";
+import { withUser } from "./components/higher-order-components/withUser";
 
 const LeftHandComponent = ({ name }) => {
   return <h1 style={{ background: "green" }}>{name}</h1>;
@@ -89,6 +90,7 @@ const StepThree = ({ goToNext }) => (
 );
 
 const UserInfoWrapped = printProps(UserInfo);
+const UserInfoWithLoader = withUser(UserInfo, "234");
 
 function App() {
   const [shouldShowModal, setShouldShowModal] = useState(false);
@@ -242,11 +244,15 @@ function App() {
         </li>
         <li>
           <Collapsible componentType={"Higher Order Components"}>
+            <h2>Print Props (but we are not passing the usef info)</h2>
             <UserInfoWrapped
               a={1}
               b={"Hey this is a wrapper"}
               c={{ name: "cree", age: 33 }}
             />
+
+            <h2>User Info with data</h2>
+            <UserInfoWithLoader />
           </Collapsible>
         </li>
       </ul>
