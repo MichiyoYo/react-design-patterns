@@ -24,6 +24,7 @@ import ControlledForm from "./components/controlled-uncontrolled-components/Cont
 import ControlledModal from "./components/controlled-uncontrolled-components/ControlledModal";
 import UnconrtolledOnBoardingFlow from "./components/controlled-uncontrolled-components/UnconrtolledOnBoardingFlow";
 import ConrtolledOnBoardingFlow from "./components/controlled-uncontrolled-components/ControlledOnBoardingFlow";
+import printProps from "./components/higher-order-components/PrintProps";
 
 const LeftHandComponent = ({ name }) => {
   return <h1 style={{ background: "green" }}>{name}</h1>;
@@ -86,6 +87,8 @@ const StepThree = ({ goToNext }) => (
     <button onClick={() => goToNext({})}>Next</button>
   </>
 );
+
+const UserInfoWrapped = printProps(UserInfo);
 
 function App() {
   const [shouldShowModal, setShouldShowModal] = useState(false);
@@ -235,6 +238,15 @@ function App() {
               {onBoardingData.age >= 62 && <StepThree />}
               <StepFour />
             </ConrtolledOnBoardingFlow>
+          </Collapsible>
+        </li>
+        <li>
+          <Collapsible componentType={"Higher Order Components"}>
+            <UserInfoWrapped
+              a={1}
+              b={"Hey this is a wrapper"}
+              c={{ name: "cree", age: 33 }}
+            />
           </Collapsible>
         </li>
       </ul>
