@@ -26,6 +26,7 @@ import UnconrtolledOnBoardingFlow from "./components/controlled-uncontrolled-com
 import ConrtolledOnBoardingFlow from "./components/controlled-uncontrolled-components/ControlledOnBoardingFlow";
 import printProps from "./components/higher-order-components/printProps";
 import { withUser } from "./components/higher-order-components/withUser";
+import { UserInfoForm } from "./components/higher-order-components/UserInfoForm";
 
 const LeftHandComponent = ({ name }) => {
   return <h1 style={{ background: "green" }}>{name}</h1>;
@@ -250,9 +251,10 @@ function App() {
               b={"Hey this is a wrapper"}
               c={{ name: "cree", age: 33 }}
             />
-
             <h2>User Info with data</h2>
             <UserInfoWithLoader />
+            <h2>User Form</h2>
+            <UserInfoForm />
           </Collapsible>
         </li>
       </ul>
