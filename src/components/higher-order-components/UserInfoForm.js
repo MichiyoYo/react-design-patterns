@@ -40,5 +40,6 @@ export const UserInfoForm = withEditableUser(
       "Loading..."
     );
   },
-  `123`
+  `/123`,
+  "user"
 );

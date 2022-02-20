@@ -100,7 +100,6 @@ function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   //turns children in an array in case is not
-  //turns children in an array in case is not
   const onNext = (stepData) => {
     const updatedData = { ...onBoardingData, ...stepData };
     setOnBoardingData(updatedData);
