@@ -1,8 +1,8 @@
 import React from "react";
 import { useUser } from "../../custom-hooks/useUser";
 
-function UserInfo3() {
-  const user = useUser("234");
+function UserInfo3({ userId }) {
+  const user = useUser(userId);
 
   const { name, age, hairColor, hobbies } = user || {};
   return user ? (

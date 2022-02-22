@@ -263,7 +263,9 @@ function App() {
             <h2>useCurrentUser()</h2>
             <UserInfo2 />
             <h2>useUser()</h2>
-            <UserInfo3 />
+            <UserInfo3 userId="123" />
+            <UserInfo3 userId="234" />
+            <UserInfo3 userId="345" />
           </Collapsible>
         </li>
       </ul>
