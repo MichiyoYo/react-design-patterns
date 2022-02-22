@@ -31,6 +31,7 @@ import UserInfo2 from "./components/custom-hooks/UserInfo2";
 import UserInfo3 from "./components/custom-hooks/UserInfo3";
 import UserInfo4 from "./components/custom-hooks/UserInfo4";
 import ProductInfo2 from "./components/custom-hooks/ProductInfo2";
+import UserInfo5 from "./components/custom-hooks/UserInfo5";
 
 const LeftHandComponent = ({ name }) => {
   return <h1 style={{ background: "green" }}>{name}</h1>;
@@ -271,6 +272,8 @@ function App() {
             <h2>useResource()</h2>
             <UserInfo4 userId="234" />
             <ProductInfo2 productId="1234" />
+            <h2>useDataSource()</h2>
+            <UserInfo5 userId="234" />
           </Collapsible>
         </li>
       </ul>
