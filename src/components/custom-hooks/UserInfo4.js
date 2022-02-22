@@ -1,8 +1,8 @@
 import React from "react";
 import { useResource } from "./useResource";
 
-function UserInfo4({ resourceUrl }) {
-  const user = useResource(resourceUrl);
+function UserInfo4({ userId }) {
+  const user = useResource(`/users/${userId}`);
 
   const { name, age, hairColor, hobbies } = user || {};
   return user ? (
