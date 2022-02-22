@@ -1,5 +1,5 @@
 import React from "react";
-import { useUser } from "../../custom-hooks/useUser";
+import { useUser } from "./useUser";
 
 function UserInfo3({ userId }) {
   const user = useUser(userId);
