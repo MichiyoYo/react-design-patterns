@@ -27,6 +27,7 @@ import ConrtolledOnBoardingFlow from "./components/controlled-uncontrolled-compo
 import printProps from "./components/higher-order-components/printProps";
 import { withUser } from "./components/higher-order-components/withUser";
 import { UserInfoForm } from "./components/higher-order-components/UserInfoForm";
+import UserInfo2 from "./components/custom-hooks/UserInfo2";
 
 const LeftHandComponent = ({ name }) => {
   return <h1 style={{ background: "green" }}>{name}</h1>;
@@ -254,6 +255,11 @@ function App() {
             <UserInfoWithLoader />
             <h2>User Form</h2>
             <UserInfoForm />
+          </Collapsible>
+        </li>
+        <li>
+          <Collapsible componentType={"Custom hooks"}>
+            <UserInfo2 />
           </Collapsible>
         </li>
       </ul>
