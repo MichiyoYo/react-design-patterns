@@ -9,8 +9,13 @@ const serverResource = (resourceUrl) => {
   };
 };
 
+const localStorageResource = (key) => {
+  return localStorage.getItem(key);
+};
+
 function UserInfo5({ userId }) {
   const user = useDataSource(serverResource(`/users/${userId}`));
+  //const message = useDataSource(localStorageResource("token"));
   const { name, age, hairColor, hobbies } = user || {};
   return user ? (
     <>
