@@ -2,11 +2,15 @@ import axios from "axios";
 import React from "react";
 import { useDataSource } from "./useDataSource";
 
-function UserInfo5({ userId }) {
-  const user = useDataSource(async () => {
-    const response = await axios.get(`/users/${userId}`);
+const serverResource = (resourceUrl) => {
+  return async () => {
+    const response = await axios.get(resourceUrl);
     return response.data;
-  });
+  };
+};
+
+function UserInfo5({ userId }) {
+  const user = useDataSource(serverResource(`/users/${userId}`));
   const { name, age, hairColor, hobbies } = user || {};
   return user ? (
     <>
