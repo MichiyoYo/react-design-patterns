@@ -28,6 +28,7 @@ import printProps from "./components/higher-order-components/printProps";
 import { withUser } from "./components/higher-order-components/withUser";
 import { UserInfoForm } from "./components/higher-order-components/UserInfoForm";
 import UserInfo2 from "./components/custom-hooks/UserInfo2";
+import UserInfo3 from "./components/container-components/resources/UserInfo3";
 
 const LeftHandComponent = ({ name }) => {
   return <h1 style={{ background: "green" }}>{name}</h1>;
@@ -259,7 +260,10 @@ function App() {
         </li>
         <li>
           <Collapsible componentType={"Custom hooks"}>
+            <h2>useCurrentUser()</h2>
             <UserInfo2 />
+            <h2>useUser()</h2>
+            <UserInfo3 />
           </Collapsible>
         </li>
       </ul>
