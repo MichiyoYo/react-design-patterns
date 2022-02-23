@@ -38,6 +38,9 @@ import {
   DangerButton,
 } from "./components/functional-programming/composition";
 
+import { DangerButton as Danger } from "./components/functional-programming/partiallyApplied";
+import { BigSuccessButton as Success } from "./components/functional-programming/partiallyApplied";
+
 const LeftHandComponent = ({ name }) => {
   return <h1 style={{ background: "green" }}>{name}</h1>;
 };
@@ -310,6 +313,9 @@ function App() {
             <h2>Component composition</h2>
             <DangerButton text={`don't do it`} />
             <BigSuccessButton text="do it" />
+            <h2>Partially applied component</h2>
+            <Danger text={`don't do it`} />
+            <Success text="ok do it" />
           </Collapsible>
         </li>
       </ul>
