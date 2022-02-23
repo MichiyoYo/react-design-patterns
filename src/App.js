@@ -32,6 +32,11 @@ import UserInfo3 from "./components/custom-hooks/UserInfo3";
 import UserInfo4 from "./components/custom-hooks/UserInfo4";
 import ProductInfo2 from "./components/custom-hooks/ProductInfo2";
 import UserInfo5 from "./components/custom-hooks/UserInfo5";
+import RecursiveComponent from "./components/functional-programming/RecursiveComponent";
+import {
+  BigSuccessButton,
+  DangerButton,
+} from "./components/functional-programming/composition";
 
 const LeftHandComponent = ({ name }) => {
   return <h1 style={{ background: "green" }}>{name}</h1>;
@@ -109,6 +114,28 @@ function App() {
     const updatedData = { ...onBoardingData, ...stepData };
     setOnBoardingData(updatedData);
     setCurrentIndex(currentIndex + 1);
+  };
+
+  const nestedObject = {
+    a: 1,
+    b: {
+      b1: 4,
+      b2: {
+        b23: "Hello",
+      },
+      b3: {
+        b31: {
+          message: "Hi",
+        },
+        b32: {
+          message: "Hi",
+        },
+      },
+    },
+    c: {
+      c1: 2,
+      c2: 3,
+    },
   };
 
   return (
@@ -274,6 +301,15 @@ function App() {
             <ProductInfo2 productId="1234" />
             <h2>useDataSource()</h2>
             <UserInfo5 userId="345" />
+          </Collapsible>
+        </li>
+        <li>
+          <Collapsible componentType={"Functional Programming"}>
+            <h2>Recursive Component</h2>
+            <RecursiveComponent data={nestedObject} />
+            <h2>Component composition</h2>
+            <DangerButton text={`don't do it`} />
+            <BigSuccessButton text="do it" />
           </Collapsible>
         </li>
       </ul>
