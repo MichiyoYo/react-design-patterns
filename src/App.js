@@ -311,8 +311,7 @@ function App() {
             <h2>Recursive Component</h2>
             <RecursiveComponent data={nestedObject} />
             <h2>Component composition</h2>
-            <DangerButton text={`don't do it`} />
-            <BigSuccessButton text="do it" />
+
             <h2>Partially applied component</h2>
             <Danger text={`don't do it`} />
             <Success text="ok do it" />
